@@ -17,15 +17,14 @@ export default [
         path: '/',
         component: '../layouts/BasicLayout',
         routes: [
-            { path: '/', redirect: '/dashboard', authority: ['admin', 'manager'] },
-
+            { path: '/', redirect: '/dashboard' },
             // 工作台
             {
                 path: '/dashboard',
                 name: 'dashboard',
                 icon: 'folder',
                 component: './Dashboard/Workplace',
-                // authority: ['admin', 'user', 'manager']
+                authority: ['admin', 'user', 'manager']
             },
             // 门诊管理
             {

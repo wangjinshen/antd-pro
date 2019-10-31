@@ -35,7 +35,7 @@ defaultAntd = defaultAntd.default || defaultAntd;
 const localeInfo = {
   'en-US': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/create/src/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/create/src/pages/user/login/locales/en-US.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/en-US.js')),
     },
     locale: 'en-US',
     antd: require('antd/lib/locale-provider/en_US'),
@@ -44,7 +44,7 @@ const localeInfo = {
   },
   'zh-CN': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/create/src/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/create/src/pages/user/login/locales/zh-CN.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/zh-CN.js')),
     },
     locale: 'zh-CN',
     antd: require('antd/lib/locale-provider/zh_CN'),
@@ -53,7 +53,7 @@ const localeInfo = {
   },
   'zh-TW': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/create/src/pages/user/login/locales/zh-TW.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/zh-TW.js')),
     },
     locale: 'zh-TW',
     antd: require('antd/lib/locale-provider/zh_TW'),

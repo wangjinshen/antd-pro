@@ -20,10 +20,10 @@ export function _onCreate() {
     app.use(plugin);
   });
   
-  app.model({ namespace: 'global', ...(require('/Users/awang/Downloads/antd pro/create/src/models/global.js').default) });
-app.model({ namespace: 'login', ...(require('/Users/awang/Downloads/antd pro/create/src/models/login.js').default) });
-app.model({ namespace: 'setting', ...(require('/Users/awang/Downloads/antd pro/create/src/models/setting.js').default) });
-app.model({ namespace: 'user', ...(require('/Users/awang/Downloads/antd pro/create/src/models/user.js').default) });
+  app.model({ namespace: 'global', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/global.js').default) });
+app.model({ namespace: 'login', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/login.js').default) });
+app.model({ namespace: 'setting', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/setting.js').default) });
+app.model({ namespace: 'user', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/user.js').default) });
   return app;
 }
 

@@ -1,7 +1,6 @@
 import { routerRedux } from 'dva/router';
 import { stringify } from 'querystring';
 import { fakeAccountLogin, getFakeCaptcha } from '@/services/login';
-import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
 const Model = {
   namespace: 'login',
@@ -15,8 +14,9 @@ const Model = {
         type: 'changeLoginStatus',
         payload: response,
       }); // Login successfully
-
+      console.log(response)
       if (response.status === 'ok') {
+        localStorage.setItem('antd-pro-authority', "[" + response.currentAuthority + "]")
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         let { redirect } = params;
@@ -46,7 +46,6 @@ const Model = {
 
     *logout(_, { put }) {
       const { redirect } = getPageQuery(); // redirect
-
       if (window.location.pathname !== '/user/login' && !redirect) {
         yield put(
           routerRedux.replace({
@@ -61,7 +60,6 @@ const Model = {
   },
   reducers: {
     changeLoginStatus(state, { payload }) {
-      setAuthority(payload.currentAuthority);
       return { ...state, status: payload.status, type: payload.type };
     },
   },

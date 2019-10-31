@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import findRoute, {
   getUrlQuery,
-} from '/Users/awang/Downloads/antd pro/create/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/findRoute.js';
+} from '/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/findRoute.js';
 
 // runtime plugins
 const plugins = require('umi/_runtimePlugin');
@@ -161,7 +161,7 @@ export default (__IS_BROWSER ? null : serverRender);
     require('../../../node_modules/_umi-plugin-ui@1.2.13@umi-plugin-ui/lib/bubble').default(
       {
         port: 3000,
-        path: '/Users/awang/Downloads/antd pro/create',
+        path: '/Users/awang/Downloads/antd pro/antd-pro',
         currentProject: '',
         isBigfish: undefined,
       },
