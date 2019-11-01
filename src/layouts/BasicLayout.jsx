@@ -108,14 +108,11 @@ const BasicLayout = props => {
             <span>{route.breadcrumbName}</span>
           );
       }}
-      // footerRender={footerRender}
+      menuRender={false}
       menuDataRender={menuDataRender}
-      formatMessage={formatMessage}
       rightContentRender={rightProps => <RightContent {...rightProps} />}
-
       {...props}
       {...settings}
-
     >
       <Authorized authority={authorized.authority} noMatch={noMatch}>
         {children}

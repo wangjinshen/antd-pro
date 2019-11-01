@@ -48,65 +48,117 @@ const routes = [
       },
       {
         path: '/dashboard',
-        name: 'dashboard',
+        name: '首页',
         icon: 'folder',
         component: require('../Dashboard/Workplace').default,
         authority: ['admin', 'user', 'manager'],
         exact: true,
       },
       {
-        path: '/Outpatient',
-        name: 'Outpatient',
-        icon: 'folder',
-        authority: ['user'],
+        name: '一号店分析',
+        path: '/numberOneShop',
+        component: require('../numberOneShop/index').default,
+        exact: true,
+      },
+      {
+        name: '专题分析',
+        path: '/special',
+        authority: ['admin', 'user', 'manager'],
         routes: [
           {
-            path: '/Outpatient/appointment',
-            name: 'appointment',
-            component: require('../Outpatient/appointment').default,
-            authority: ['admin', 'manager'],
+            path: '/special/member',
+            name: '会员分析',
+            icon: 'folder',
+            component: require('../special/member/index').default,
+            authority: ['admin', 'user', 'manager'],
+            routes: [
+              {
+                path: '/special/member',
+                redirect: '/special/member/lifecycle/comprehensive',
+                exact: true,
+              },
+              {
+                path: '/special/member/lifecycle',
+                name: '生命周期分析',
+                icon: 'folder',
+                authority: ['admin', 'user', 'manager'],
+                routes: [
+                  {
+                    path: '/special/member/lifecycle/comprehensive',
+                    name: '综合分析',
+                    icon: 'folder',
+                    component: require('../special/member/lifecycle/comprehensive/index')
+                      .default,
+                    authority: ['admin', 'user', 'manager'],
+                    exact: true,
+                  },
+                  {
+                    path: '/special/member/lifecycle/noviceStage',
+                    name: '新手分析',
+                    icon: 'folder',
+                    component: require('../special/member/lifecycle/noviceStage/index')
+                      .default,
+                    authority: ['admin', 'user', 'manager'],
+                    exact: true,
+                  },
+                  {
+                    component: () =>
+                      React.createElement(
+                        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+                          .default,
+                        { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                      ),
+                  },
+                ],
+              },
+              {
+                path: '/special/member/Insight',
+                name: '洞察分析',
+                icon: 'folder',
+                component: require('../special/member/Insight/index').default,
+                authority: ['admin', 'user', 'manager'],
+                exact: true,
+              },
+              {
+                component: require('../404').default,
+                exact: true,
+              },
+              {
+                component: () =>
+                  React.createElement(
+                    require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+                      .default,
+                    { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                  ),
+              },
+            ],
+          },
+          {
+            path: '/special/goods',
+            name: '商品分析',
+            icon: 'folder',
+            component: require('../special/goods/index').default,
+            authority: ['admin', 'user', 'manager'],
             exact: true,
           },
           {
-            path: '/Outpatient/template',
-            name: 'template',
-            component: require('../Outpatient/registered').default,
+            path: '/special/marketing',
+            name: '营销分析',
+            icon: 'folder',
+            component: require('../special/marketing/index').default,
+            authority: ['admin', 'user', 'manager'],
             exact: true,
           },
           {
-            path: '/Outpatient/signature',
-            name: 'signature',
-            component: require('../Outpatient/preliminary').default,
+            path: '/special/channel',
+            name: '渠道分析',
+            icon: 'folder',
+            component: require('../special/channel/index').default,
+            authority: ['admin', 'user', 'manager'],
             exact: true,
           },
           {
-            path: '/Outpatient/clinicdetails',
-            name: 'clinicdetails',
-            component: require('../Outpatient/charge').default,
-            exact: true,
-          },
-          {
-            path: '/Outpatient/smsdetails',
-            name: 'smsdetails',
-            component: require('../Outpatient/checked').default,
-            exact: true,
-          },
-          {
-            path: '/Outpatient/zhanliao',
-            name: 'zhenliao',
-            component: require('../Outpatient/treatment').default,
-            exact: true,
-          },
-          {
-            path: '/Outpatient/communication',
-            name: 'communication',
-            component: require('../Outpatient/communication').default,
-            exact: true,
-          },
-          {
-            path: '/Outpatient/workers',
-            name: 'workers',
-            component: require('../Outpatient/workers').default,
+            component: require('../404').default,
             exact: true,
           },
           {
@@ -118,6 +170,18 @@ const routes = [
               ),
           },
         ],
+      },
+      {
+        name: '运营分析',
+        path: '/operating',
+        component: require('../operating/index').default,
+        exact: true,
+      },
+      {
+        name: '供应链管理',
+        path: '/supply',
+        component: require('../supply/index').default,
+        exact: true,
       },
       {
         component: require('../404').default,
