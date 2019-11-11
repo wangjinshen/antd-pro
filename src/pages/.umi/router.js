@@ -30,7 +30,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/pages', hasRoutesInConfig: true },
           ),
@@ -50,7 +50,7 @@ const routes = [
         path: '/dashboard',
         name: '首页',
         icon: 'folder',
-        component: require('../Dashboard/Workplace').default,
+        component: require('../Dashboard/analysis').default,
         authority: ['admin', 'user', 'manager'],
         exact: true,
       },
@@ -104,7 +104,7 @@ const routes = [
                   {
                     component: () =>
                       React.createElement(
-                        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+                        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
                           .default,
                         { pagesPath: 'src/pages', hasRoutesInConfig: true },
                       ),
@@ -126,7 +126,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -164,7 +164,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'src/pages', hasRoutesInConfig: true },
               ),
@@ -190,7 +190,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/pages', hasRoutesInConfig: true },
           ),
@@ -204,7 +204,7 @@ const routes = [
   {
     component: () =>
       React.createElement(
-        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.13.13@umi-build-dev/lib/plugins/404/NotFound.js')
+        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
         { pagesPath: 'src/pages', hasRoutesInConfig: true },
       ),
@@ -233,7 +233,15 @@ export default class RouterWrapper extends React.Component {
       });
     }
     this.unListen = history.listen(routeChangeHandler);
-    routeChangeHandler(history.location);
+    // dva 中 history.listen 会初始执行一次
+    // 这里排除掉 dva 的场景，可以避免 onRouteChange 在启用 dva 后的初始加载时被多执行一次
+    const isDva =
+      history.listen
+        .toString()
+        .indexOf('callback(history.location, history.action)') > -1;
+    if (!isDva) {
+      routeChangeHandler(history.location);
+    }
   }
 
   componentWillUnmount() {

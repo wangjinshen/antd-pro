@@ -24,6 +24,7 @@ export function _onCreate() {
 app.model({ namespace: 'login', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/login.js').default) });
 app.model({ namespace: 'setting', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/setting.js').default) });
 app.model({ namespace: 'user', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/user.js').default) });
+app.model({ namespace: 'model', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/Dashboard/analysis/model.tsx').default) });
   return app;
 }
 

@@ -25,12 +25,12 @@ export default [
             {
                 path: '/',
                 redirect: '/dashboard',
-            }, // 工作台
+            },
             {
                 path: '/dashboard',
                 name: '首页',
                 icon: 'folder',
-                component: './Dashboard/Workplace',
+                component: './Dashboard/analysis',
                 authority: ['admin', 'user', 'manager'],
             },
             {
@@ -124,7 +124,6 @@ export default [
                 path: '/supply',
                 component: './supply/index',
             },
-
             {
                 component: '404',
             },

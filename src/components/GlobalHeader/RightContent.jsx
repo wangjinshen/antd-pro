@@ -1,4 +1,4 @@
-import { Icon, Tooltip, Dropdown, Menu } from 'antd';
+import { Icon, Tooltip, Dropdown, Menu, Layout } from 'antd';
 import React from 'react';
 import { connect } from 'dva';
 import { formatMessage } from 'umi-plugin-react/locale';
@@ -9,6 +9,7 @@ import styles from './index.less';
 import SubMenu from 'antd/lib/menu/SubMenu';
 import { Link } from 'umi';
 
+const { Header, Content, Footer, Sider } = Layout;
 
 const style = {
   content: {
@@ -35,24 +36,27 @@ const GlobalHeaderRight = props => {
     className = `${styles.right}  ${styles.dark}`;
   }
   const handleClick = e => {
-    
+
   }
   return (
-    <Menu onClick={handleClick} selectedKeys={location.pathname} mode="horizontal">
-      {
-        menuData.map((e, k) => {
-          if (e.children) {
-            return <SubMenu style={style.content} key={e.path} title={e.name}>{setMenu(e)}</SubMenu>
-          } else {
-            return (
-              <Menu.Item key={e.path} >
-                <Link style={style.content} to={e.path}>{e.name}</Link>
-              </Menu.Item>
-            )
-          }
-        })
-      }
-    </Menu>
+    <Header className="header" style={{width:"100%"}}>
+      <Menu style={{height:'100%',lineHeight:"64px"}} onClick={handleClick} selectedKeys={location.pathname}  theme="dark"
+        mode="horizontal">
+        {
+          menuData.map((e, k) => {
+            if (e.children) {
+              return <SubMenu  key={e.path} title={e.name}>{setMenu(e)}</SubMenu>
+            } else {
+              return (
+                <Menu.Item key={e.path} >
+                  <Link  to={e.path}>{e.name}</Link>
+                </Menu.Item>
+              )
+            }
+          })
+        }
+      </Menu>
+    </Header>
   );
 };
 

@@ -20,6 +20,7 @@ const InjectedWrapper = (() => {
 })();
 
 import 'moment/locale/zh-cn';
+import 'moment/locale/pt-br';
 import 'moment/locale/zh-tw';
 
 const baseNavigator = true;
@@ -35,7 +36,7 @@ defaultAntd = defaultAntd.default || defaultAntd;
 const localeInfo = {
   'en-US': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/en-US.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/Dashboard/analysis/locales/en-US.ts')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/en-US.js')),
     },
     locale: 'en-US',
     antd: require('antd/lib/locale-provider/en_US'),
@@ -44,16 +45,25 @@ const localeInfo = {
   },
   'zh-CN': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/zh-CN.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/Dashboard/analysis/locales/zh-CN.ts')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/zh-CN.js')),
     },
     locale: 'zh-CN',
     antd: require('antd/lib/locale-provider/zh_CN'),
     data: require('react-intl/locale-data/zh'),
     momentLocale: 'zh-cn',
   },
+  'pt-BR': {
+    messages: {
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/Dashboard/analysis/locales/pt-BR.ts')),
+    },
+    locale: 'pt-BR',
+    antd: require('antd/lib/locale-provider/pt_BR'),
+    data: require('react-intl/locale-data/pt'),
+    momentLocale: 'pt-br',
+  },
   'zh-TW': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/zh-TW.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/Dashboard/analysis/locales/zh-TW.ts')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/awang/Downloads/antd pro/antd-pro/src/pages/user/login/locales/zh-TW.js')),
     },
     locale: 'zh-TW',
     antd: require('antd/lib/locale-provider/zh_TW'),
