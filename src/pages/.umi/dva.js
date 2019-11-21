@@ -21,6 +21,7 @@ export function _onCreate() {
   });
   
   app.model({ namespace: 'global', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/global.js').default) });
+app.model({ namespace: 'img', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/img.js').default) });
 app.model({ namespace: 'login', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/login.js').default) });
 app.model({ namespace: 'setting', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/setting.js').default) });
 app.model({ namespace: 'user', ...(require('/Users/awang/Downloads/antd pro/antd-pro/src/models/user.js').default) });

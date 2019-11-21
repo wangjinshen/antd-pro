@@ -68,7 +68,6 @@ class Member extends Component {
   componentDidMount() {
 
     let openKeys = this.state.rootSubmenuKeys.filter(e => {
-      console.log(location.pathname, e)
       return location.pathname.indexOf(e) != -1 && e
     })
     this.setState({
@@ -104,10 +103,13 @@ class Member extends Component {
                 {SetMenu(route.routes)}
               </Menu>
             </Sider>
-            <Content style={{ padding: '0 24px', minHeight: 280 }}>
-              <Authorized authority={authorized.authority} noMatch={noMatch}>
-                {children}
-              </Authorized>
+            <Content  >
+              <div style={{ padding: '24px', minHeight: 280 }}>
+                <Authorized authority={authorized.authority} noMatch={noMatch}>
+                  {children}
+                </Authorized>
+              </div>
+
             </Content>
           </Layout>
         </Content>
