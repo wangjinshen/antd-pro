@@ -1,4 +1,26 @@
 
 .normal {
+  background: rgb(248, 248, 248);
+
+}
+
+.List{
+  width: 50%;
+  height: 300px;
+  margin: 0 auto;
   background: #F279D2;
+  position: relative;
+}
+.li_itme{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: solid 1px sandybrown;
+  right: 0;
+  top: 0;
+  background: saddlebrown;
+  transition:1s;
+}
+.active{
+  transform: translateY(100%);
 }

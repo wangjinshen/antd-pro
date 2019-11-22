@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import findRoute, {
   getUrlQuery,
-} from '/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/findRoute.js';
+} from '/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/findRoute.js';
 
 // runtime plugins
 const plugins = require('umi/_runtimePlugin');
@@ -24,7 +24,7 @@ plugins.init({
   ],
 });
 plugins.use(
-  require('../../../node_modules/_umi-plugin-dva@1.9.2@umi-plugin-dva/lib/runtime'),
+  require('../../../node_modules/_umi-plugin-dva@1.11.0@umi-plugin-dva/lib/runtime'),
 );
 
 const app = require('@tmp/dva')._onCreate();
@@ -93,7 +93,7 @@ if (!__IS_BROWSER) {
     // ctx.req.url may be `/bar?locale=en-US`
     const [pathname] = (ctx.req.url || '').split('?');
     const history = require('@tmp/history').default;
-    history.push(ctx.req.url);
+    history.replace(ctx.req.url);
     let props = {};
     const activeRoute =
       findRoute(require('./router').routes, pathname) || false;
@@ -158,7 +158,7 @@ export default (__IS_BROWSER ? null : serverRender);
     if (isIE) return;
 
     // Umi UI Bubble
-    require('../../../node_modules/_umi-plugin-ui@1.3.1@umi-plugin-ui/lib/bubble').default(
+    require('../../../node_modules/_umi-plugin-ui@1.4.5@umi-plugin-ui/lib/bubble').default(
       {
         port: 3000,
         path: '/Users/awang/Downloads/antd pro/antd-pro',
@@ -169,6 +169,64 @@ export default (__IS_BROWSER ? null : serverRender);
   } catch (e) {
     console.warn('Umi UI render error:', e);
   }
+})();
+
+(() => {
+  // Runtime block add component
+  window.GUmiUIFlag = require('../../../node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/plugins/commands/block/sdk/flagBabelPlugin/GUmiUIFlag.js').default;
+
+  // Enable/Disable block add edit mode
+  const el = document.createElement('style');
+  el.innerHTML = '.g_umiuiBlockAddEditMode { display: none; } ';
+  const hoverEl = document.createElement('style');
+  hoverEl.innerHTML =
+    '.g_umiuiBlockAddEditMode:hover {background: rgba(24, 144, 255, 0.25) !important;}';
+  document.querySelector('head').appendChild(hoverEl);
+  document.querySelector('head').appendChild(el);
+
+  window.addEventListener(
+    'message',
+    event => {
+      try {
+        const { action, data } = JSON.parse(event.data);
+        switch (action) {
+          case 'umi.ui.enableBlockEditMode':
+            el.innerHTML = '';
+            break;
+          case 'umi.ui.disableBlockEditMode':
+            el.innerHTML = '.g_umiuiBlockAddEditMode { display: none; }';
+            break;
+          case 'umi.ui.checkValidEditSection':
+            const haveValid = !!document.querySelectorAll(
+              'div.g_umiuiBlockAddEditMode',
+            ).length;
+            const frame = document.getElementById('umi-ui-bubble');
+            if (frame && frame.contentWindow) {
+              frame.contentWindow.postMessage(
+                JSON.stringify({
+                  action: 'umi.ui.checkValidEditSection.success',
+                  payload: {
+                    haveValid,
+                  },
+                }),
+                '*',
+              );
+            }
+          default:
+            break;
+        }
+      } catch (e) {}
+    },
+    false,
+  );
+
+  // TODO: remove this before publish
+  window.g_enableUmiUIBlockAddEditMode = function() {
+    el.innerHTML = '';
+  };
+  window.g_disableUmiUIBlockAddEditMode = function() {
+    el.innerHTML = '.g_umiuiBlockAddEditMode { display: none; }';
+  };
 })();
 
 require('../../global.less');

@@ -30,7 +30,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/pages', hasRoutesInConfig: true },
           ),
@@ -104,7 +104,7 @@ const routes = [
                   {
                     component: () =>
                       React.createElement(
-                        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
+                        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/plugins/404/NotFound.js')
                           .default,
                         { pagesPath: 'src/pages', hasRoutesInConfig: true },
                       ),
@@ -126,7 +126,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -164,7 +164,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'src/pages', hasRoutesInConfig: true },
               ),
@@ -190,7 +190,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/pages', hasRoutesInConfig: true },
           ),
@@ -204,7 +204,7 @@ const routes = [
   {
     component: () =>
       React.createElement(
-        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.14.1@umi-build-dev/lib/plugins/404/NotFound.js')
+        require('/Users/awang/Downloads/antd pro/antd-pro/node_modules/_umi-build-dev@1.16.5@umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
         { pagesPath: 'src/pages', hasRoutesInConfig: true },
       ),
